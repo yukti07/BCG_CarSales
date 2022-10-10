@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="{{ url_for('static', filename='jquery-3.6.0.js') }}"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+            <a href="{{ url_for('about') }}" class="navbar-brand">About us</a>
+            <a href="{{ url_for('contact') }}" class="navbar-brand">Contact us</a>
+        </div>
+
+        <div class="body-content">
+            {% block content %}
+            {% endblock %}
+            <hr/>
+            <footer>
+                <p>© 2022</p>
+            </footer>
+        </div>
+    </body>
+</html>

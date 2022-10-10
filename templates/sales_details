@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+{% block title %}
+Sales Details
+{% endblock %}
+
+{% block content %}
+<div>
+    <ul class="parent-row-full">
+        <li class="row-full">Sales ID: {{salesIDDetails.sales_id}}</li>
+        <p></p>
+        <li class="row-full">Date of Purchase: {{salesIDDetails.Date_of_Purchase}}</li>
+        <p></p>
+        <li class="row-full">Customer ID: {{salesIDDetails.Customer_id}}</li>
+        <p></p>
+        <li class="row-full">Fuel: 
+            <span id="spanFuel">{{salesIDDetails.Fuel}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Fuel" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectFuel"></div>
+        <p></p>
+        <li class="row-full">Vehicle Segment: 
+            <span id="spanVEHICLE_SEGMENT">{{salesIDDetails.VEHICLE_SEGMENT}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="VEHICLE_SEGMENT" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectVEHICLE_SEGMENT"></div>
+        <p></p>
+        <li class="row-full">Selling Price: 
+            <span id="spanSellingPrice">{{salesIDDetails.SellingPrice}}</span>
+            <button style="border: none;background: none;">
+                <i id="SellingPrice" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="inputSellingPrice">
+            <form action="app.py" id="formSellingPrice">
+                    <label for="SP">Input Selling Price(500-2500): </label>
+                    <input name="SP" type="number" placeholder="Enter SP..." min="500" max="2500" required>
+                    <input type="submit" value="Submit">
+            </form>
+        </div>
+        <p></p>
+        <li class="row-full">Power Steering: 
+            <span id="spanPower_steering">{{salesIDDetails.Power_steering}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Power_steering" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectPower_steering"></div>
+        <p></p>
+        <li class="row-full">Airbags: 
+            <span id="spanairbags">{{salesIDDetails.airbags}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="airbags" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectairbags"></div>
+        <p></p>
+        <li class="row-full">Sunroof: 
+            <span id="spansunroof">{{salesIDDetails.sunroof}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="sunroof" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectsunroof"></div>
+        <p></p>
+        <li class="row-full">Matt Finish: 
+            <span id="spanMatt_finish">{{salesIDDetails.Matt_finish}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Matt_finish" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectMatt_finish"></div>
+        <p></p>
+        <li class="row-full">Music System: 
+            <span id="spanmusic_system">{{salesIDDetails.music_system}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="music_system" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectmusic_system"></div>
+        <p></p>
+        <li class="row-full">Customer Gender: 
+            <span id="spanCustomer_Gender">{{salesIDDetails.Customer_Gender}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Customer_Gender" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectCustomer_Gender"></div>
+        <p></p>
+        <li class="row-full">Customer Income Group: 
+            <span id="spanCustomer_Income_group">{{salesIDDetails.Customer_Income_group}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Customer_Income_group" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectCustomer_Income_group"></div>
+        <p></p>
+        <li class="row-full">Customer Region: 
+            <span id="spanCustomer_Region">{{salesIDDetails.Customer_Region}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Customer_Region" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectCustomer_Region"></div>
+        <p></p>
+        <li class="row-full">Customer Marital Status: 
+            <span id="spanCustomer_Marital_status">{{salesIDDetails.Customer_Marital_status}}</span>
+            <button style="border: none;background: none;" class="btn">
+                <i id="Customer_Marital_status" class="material-icons" style="font-size:20px;">mode_edit</i>
+            </button>
+        </li>
+        <div style="display: none;" id="selectCustomer_Marital_status"></div>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    //jquery handler on selecting dropdown option
+    $('#selectFuel, #selectVEHICLE_SEGMENT, #selectPower_steering, #selectairbags, #selectsunroof, #selectMatt_finish, #selectmusic_system, #selectCustomer_Gender, #selectCustomer_Income_group, #selectCustomer_Region, #selectCustomer_Marital_status' ).on('change', '#selectedFuel, #selectedVEHICLE_SEGMENT, #selectedPower_steering, #selectedairbags, #selectedsunroof, #selectedMatt_finish, #selectedmusic_system, #selectedCustomer_Gender, #selectedCustomer_Income_group, #selectedCustomer_Region, #selectedCustomer_Marital_status', function(e){
+     var detailName=(e.target.id).substring(8,e.target.id.length);
+    //  console.log(detailName);
+     var newVal = this.value;
+     $('span#span'+detailName).html(newVal);
+     //hide select div
+     var x= document.getElementById("select"+detailName);
+     x.style.display = "none";
+     x.innerHTML = "";
+     //3 data points to send to python file: sales_id, Fuel, new value
+     $.ajax({
+        url: "/editSalesDetails",
+        type: "POST",
+        data: {'sales_id': '{{salesIDDetails.sales_id}}','detail_name': detailName, 'newValue': newVal},
+        success: function(resp){
+            alert(resp.data);
+        }
+     });
+    });
+
+    //jquery handler for input selling price and changing db
+    $(document).ready(function() {
+        $("#formSellingPrice").on('submit', function(e) {
+                e.preventDefault();
+                // your ajax would go here
+                var detailName="SellingPrice";
+                var newVal=e.target["SP"].value;
+                $('span#span'+detailName).html(newVal);
+                //hide input div
+                var x= document.getElementById("input"+detailName);
+                x.style.display = "none";
+                $.ajax({
+                    url: "/editSalesDetails",
+                    type: "POST",
+                    data: {'sales_id': '{{salesIDDetails.sales_id}}','detail_name': detailName, 'newValue': newVal},
+                    success: function(resp){
+                        alert(resp.data);
+                    }
+                });
+                return false;  // blocks regular submit since you have ajax
+        });
+    });
+    
+    //javascript handler for edit button click and show dropdown
+    const salesUniqueValues =JSON.parse('{{ salesUniqueValues| tojson}}');
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(function(currentBtn){
+        currentBtn.addEventListener('click', event => {
+            var x= document.getElementById("select"+event.target.id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                // create dropdown
+                var values = salesUniqueValues[event.target.id];
+                var select = document.createElement("select");
+                select.id = "selected"+event.target.id;
+                select.appendChild(document.createElement("option"));
+                for (const val of values){
+                    var option = document.createElement("option");
+                    option.value = val;
+                    //option.text = val.charAt(0).toUpperCase() + val.slice(1);
+                    option.text = val;
+                    select.appendChild(option);
+                }
+                var label = document.createElement("label");
+                label.innerHTML = "Select "+event.target.id+" : ";
+                x.appendChild(label).appendChild(select);
+            } else {
+                x.style.display = "none";
+                x.innerHTML = "";
+            } 
+        });
+    });
+    
+    //javascript handler for edit button click of Selling Price and show input text field
+    document.getElementById("SellingPrice").addEventListener("click", event =>{
+        var x= document.getElementById("inputSellingPrice");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                
+            } else {
+                x.style.display = "none";
+            } 
+    });
+</script>
+{% endblock %}
